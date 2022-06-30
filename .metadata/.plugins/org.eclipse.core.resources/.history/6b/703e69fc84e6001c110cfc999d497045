@@ -1,0 +1,20 @@
+package com.estockCogJava1187.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.estockCogJava1187.entity.Company;
+
+@RestController
+public class CustomerController {
+	
+	
+	
+	@PostMapping("/addCompany")
+	public Company addCompany(@RequestBody Company company)
+	{
+		return company;
+	}
+
+}

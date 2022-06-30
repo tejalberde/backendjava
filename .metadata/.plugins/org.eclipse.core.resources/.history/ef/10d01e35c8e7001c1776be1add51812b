@@ -1,0 +1,72 @@
+package com.estockCogJava1187.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Company {
+	
+	@Id
+	private int companyCode;
+	private String companyName;
+	private String companyCEO;
+	private int turnover;
+	private String website;
+	private String stockExchange;
+	
+		
+	public Company() {
+		super();
+	}
+
+	public Company(int companyCode, String companyName, String companyCEO, int turnover, String website,
+			String stockExchange) {
+		super();
+		this.companyCode = companyCode;
+		this.companyName = companyName;
+		this.companyCEO = companyCEO;
+		this.turnover = turnover;
+		this.website = website;
+		this.stockExchange = stockExchange;
+	}
+	
+	public int getCompanyCode() {
+		return companyCode;
+	}
+	public void setCompanyCode(int companyCode) {
+		this.companyCode = companyCode;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public String getCompanyCEO() {
+		return companyCEO;
+	}
+	public void setCompanyCEO(String companyCEO) {
+		this.companyCEO = companyCEO;
+	}
+	public int getTurnover() {
+		return turnover;
+	}
+	public void setTurnover(int turnover) {
+		this.turnover = turnover;
+	}
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	public String getStockExchange() {
+		return stockExchange;
+	}
+	public void setStockExchange(String stockExchange) {
+		this.stockExchange = stockExchange;
+	}
+	
+	
+
+}

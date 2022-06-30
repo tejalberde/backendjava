@@ -1,0 +1,20 @@
+server:
+   port: 8090
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: estock-ms1
+          uri: http://localhost:8091/
+          predicates:
+            - Path=/estock-ms1/**
+        - id: estock-ms2
+          uri: http://localhost:8092/
+          predicates:
+            - Path=/estock-ms2/**
+        - id: estock-ms3
+          uri: http://localhost:8093/
+          predicates:
+            - Path=/estock-ms3/** 
+            

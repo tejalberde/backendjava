@@ -1,0 +1,36 @@
+package com.example.CompanyStockPrice;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+
+
+import com.example.CompanyStockPrice.Entity.Stock;
+import com.example.CompanyStockPrice.Repository.CompanyRepository;
+import com.example.CompanyStockPrice.Service.CompanyStockService;
+
+
+@SpringBootTest
+class EstockExchangeCogJava1187ViewDeleteApplicationTests {
+
+	@InjectMocks
+	CompanyStockService companyStockService;
+
+	
+	@Mock
+	CompanyRepository companyRepository;
+	
+	@Mock
+	SimpleJpaRepository stockRepository;
+	
+	@Test
+	void contextLoads() {
+		List<Stock> stock = companyStockService.findAllStockByCompanyCode(1);
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package com.example.CompanyStockPrice.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.CompanyStockPrice.Entity.Company;
+import com.example.CompanyStockPrice.Repository.CompanyRepository;
+import com.example.CompanyStockPrice.Repository.StockRepository;
+
+@Service
+public class CompanyStockService {
+	
+	@Autowired
+	private CompanyRepository companyRepository;
+	
+	@Autowired
+	private StockRepository stockRepository;
+	
+	public List<Company> listAllCompany()
+	{
+		return companyRepository.findAll();
+	}
+
+}

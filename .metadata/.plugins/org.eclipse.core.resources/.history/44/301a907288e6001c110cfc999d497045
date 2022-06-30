@@ -1,0 +1,25 @@
+package com.estockCogJava1187.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.estockCogJava1187.entity.Company;
+import com.estockCogJava1187.repository.CompanyRepository;
+
+@Service
+public class CompanyService {
+	
+	@Autowired
+	CompanyRepository companyRepository;
+    
+	public Company addCompany(Company company)
+	{
+		return companyRepository.save(company);
+	}
+	
+	
+	public Company getCompany(int companyCode)
+	{
+		return companyRepository.findById(companyCode).orElse(null);
+	}
+}

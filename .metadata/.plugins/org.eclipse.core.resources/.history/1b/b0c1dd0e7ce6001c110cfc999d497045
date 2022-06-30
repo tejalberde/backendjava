@@ -1,0 +1,5 @@
+package com.estockCogJava1187.repository;
+
+public interface CompanyRepository {
+
+}

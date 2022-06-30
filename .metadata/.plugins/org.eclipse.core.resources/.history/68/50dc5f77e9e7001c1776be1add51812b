@@ -1,0 +1,5 @@
+package com.example.StockPrice.Service;
+
+public class StockService {
+
+}

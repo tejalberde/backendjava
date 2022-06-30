@@ -1,0 +1,37 @@
+package com.estockCogJava1187.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.estockCogJava1187.entity.Company;
+import com.estockCogJava1187.service.CompanyService;
+
+@RestController
+public class CompanyController {
+	@Autowired
+	private CompanyService companyService;
+	
+		@GetMapping("/hello/{name}")
+	public String hello(@PathVariable String name)
+	{
+		return String.format("hello" + name);
+	}
+	 
+	@PostMapping("/addCompany")
+	public Company addCompany(@RequestBody Company company)
+	{
+		System.out.print("tejal123");
+		return companyService.addCompany(company);
+	}
+
+	@GetMapping("/getCompany/{companyCode}")
+	public Company getCompany(@PathVariable int companyCode)
+	{
+		return companyService.getCompany(companyCode);
+	}
+}

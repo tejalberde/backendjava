@@ -1,0 +1,25 @@
+package com.example.StockPrice.Entity;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import com.sun.istack.NotNull;
+
+@Entity
+public class Stock {
+	@Id
+	private int stockid;
+	@NotNull
+	private int companyCode;
+	@NotNull
+	private double price;
+	@NotNull
+	private LocalDate stockDate;
+	@NotNull
+	private LocalTime StockTime;
+
+}

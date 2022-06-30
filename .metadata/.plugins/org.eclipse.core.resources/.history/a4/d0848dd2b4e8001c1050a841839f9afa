@@ -1,0 +1,29 @@
+package com.example.StockPrice.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.StockPrice.Entity.Stock;
+import com.example.StockPrice.Repository.StockRepository;
+
+@Service
+public class StockService {
+
+	@Autowired
+	private StockRepository stockRepository;
+    
+	public Stock addStock(Stock stock)
+	{
+		return stockRepository.save(stock);
+	}
+	
+	public Stock getStock(int stockid)
+	{
+		Stock stock = new Stock();
+		stock.setStockid(stockid);
+		return stockRepository.findById(stock.getStockid()).orElse(null);
+	}
+	
+}

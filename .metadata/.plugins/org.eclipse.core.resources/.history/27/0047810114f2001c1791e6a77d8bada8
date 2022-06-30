@@ -1,0 +1,63 @@
+package com.example.CompanyStockPrice;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+
+import com.example.CompanyStockPrice.Entity.Company;
+import com.example.CompanyStockPrice.Entity.Stock;
+import com.example.CompanyStockPrice.Repository.CompanyRepository;
+import com.example.CompanyStockPrice.Service.CompanyStockService;
+
+
+@SpringBootTest
+class EstockExchangeCogJava1187ViewDeleteApplicationTests {
+
+	@InjectMocks
+	CompanyStockService companyStockService;
+
+	
+	@Mock
+	CompanyRepository companyRepository;
+	
+	@Mock
+	SimpleJpaRepository stockRepository;
+	
+	@Test
+	void contextLoads() {
+
+		}
+	
+	@Test
+	public void getStock()
+	{
+		perpersistData();
+		List<Stock> stock = companyStockService.findAllStockByCompanyCode(1);
+		for (Stock stock2 : stock) {
+			assertNotNull(stock2.getCompanyCode());
+			System.out.println(stock2.getStockid());
+	}
+		
+		public void persistData()
+		{
+			Company company =new Company(1, "cogni", "xyz", 100000000, "website", "NSE");
+			
+			Company companyReturn =new Company(1, "cogni", "xyz", 100000000, "website", "NSE");
+			
+			when(companyRepository.save(company)).thenReturn(companyReturn);
+			
+		}
+		
+		
+		
+		
+	}
+
+}

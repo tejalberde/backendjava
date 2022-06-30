@@ -1,0 +1,46 @@
+package com.example.CompanyStockPrice.Repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.CompanyStockPrice.Entity.Stock;
+
+@Repository
+public interface StockRepository extends JpaRepository<Stock, Integer> {
+
+	public static final EntityManager entityManager = null;
+	List<Stock> findByCompanyCode(int companyCode);
+	
+	@Modifying
+	@Query("delete from Stock stock where stock.companyCode = :companyCode")
+	void deleteAllStockForCompany(@Param("companyCode") int companyCode);
+	
+	@Query("select stock from Stock stock where stock.companyCode = :companyCode and (stock.stockDate between :fromDt AND :endDt)")
+	List<Stock> findByCompanyCodeAndBetweenDates(@Param("companyCode") int companyCode,@Param("fromDt") LocalDate fromDt,@Param("endDt") LocalDate endDt);
+	
+	//@Query("SELECT stock FROM Stock stock where stock.companyCode = : companyCode ORDER BY stock.price")
+	
+	//Stock findLatestPrice(@Param("companyCode") int companyCode);
+	
+	/*default 
+	Stock findLatestPrice(@Param("companyCode") int companyCode)
+	{
+		return (Stock) entityManager.createQuery("SELECT stock FROM Stock stock where stock.companyCode = : companyCode ORDER BY stock.price",
+		          Stock.class).setMaxResults(1);
+	}*/
+	
+	Stock findFirstByCompanyCodeOrderByPriceDesc(int companyCode);
+	
+
+	
+	
+}

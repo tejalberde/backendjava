@@ -1,0 +1,28 @@
+package com.example.CompanyStockPrice.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.CompanyStockPrice.Entity.Company;
+import com.example.CompanyStockPrice.Entity.Stock;
+import com.example.CompanyStockPrice.Service.CompanyStockService;
+
+@RestController
+public class CompanyStockController {
+	
+	@Autowired
+	CompanyStockService companyStockService;
+	
+	public List<Company> listAllCompany()
+	{
+		return companyStockService.listAllCompany();
+	}
+	
+	public List<Stock> listAllStock()
+	{
+		return companyStockService.listAllStock();
+	}
+
+}
